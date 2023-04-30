@@ -1,0 +1,188 @@
+<!-- <style>
+    body {
+        margin: 0
+    }
+</style>
+ <img src="images/enemy.png" alt="Girl in a jacket">
+
+<canvas width="1366" height="768"></canvas>
+<head>
+    <title>Insert Image Before Script Tag</title>
+</head>
+<body>
+    <script src="script_without_comments.js"></script>
+</body> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- <canvas width="1366" height="768"></canvas> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title> Fight! </title>
+    <link rel="stylesheet" href="StyleSheet1.css">
+</head>
+<body>
+    <header>
+        <h2 class="logo"> LOGO </h2>
+        <br />
+        <nav class="navigation">
+            <button class="btnMenu" id="Home-popup">Home</button>
+            <button class="btnMenu" id="About-popup">About</button>
+            <button class="btnMenu" id="btnLogin-popup">Login</button>
+            <button class="btnMenu" id="btnReg-popup">Reg</button>
+        </nav>
+    </header>
+
+    <dialog id="my-dialog">
+        <div class="dialog-header">
+            <h2 class="dialog-title">Welcome!</h2>
+
+            <span class="icon-close">
+                <ion-icon name="close" id="close-dialog"></ion-icon>
+            </span>
+
+        </div>
+        <div class="dialog-content">
+            <p></p>
+            <p>We see that you are up to a challenge</p>
+            <p>We are sending you to a mission in space,</p>
+            <p>to save the earth from aliens who want to destroy earth!</p>
+            <p>In order to play the game you need to register first! </p>
+            <p>Just click on the Reg button and fill up all your personal detail.</p>
+            <p>Afterwards press on the login button and insert youe user details.</p>
+            <p>After login you will reach configuration page</p>
+            <p>choose your shooting keyboard weapon, and time of the game. </p>
+
+
+        </div>
+    </dialog>
+
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close" id="icon-close"></ion-icon>
+        </span>
+
+        <div class="form-box login">
+            <h2 style="text-align:center">Login</h2>
+            <!-- onsubmit="return checkUser()" -->
+            <form action="#">
+                <div class="input-box">
+                    <lable>User name</lable>
+                    <input type="text" id="UserNameLogin" required />
+                </div>
+                <div class="input-box">
+                    <lable>Password</lable>
+                    <input type="password" id="PasswordLogin" required />
+                </div>
+                <button type="submit" id="=loginbtn" class="btn" onclick="checkLoginUser()">Login</button>
+                <div class="login-register">
+                    <p>
+                        Don't have an account?
+                        <a href="#" class="register-link">Register</a>
+                    </p>
+
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2 style="text-align:center">Registration</h2>
+            <form id="formReg" action="#">
+                <div style="display: flex;">
+                    <div style="flex: 1;">
+                        <div class="input-box">
+                            <lable>First name</lable>
+                            <input id="FirstName" name="FirstName" type="text" required />
+                        </div>
+                        <div class="input-box">
+                            <lable>Second name</lable>
+                            <input id="SecondName" name="SecondName" type="text" required />
+                        </div>
+                        <div class="input-box">
+                            <lable>Email</lable>
+                            <input id="Email" name="Email" type="email" required />
+                        </div>
+                        <div class="input-box">
+                            <lable>Date of birth</lable>
+                            <input type="date" id="my-date-input" name="my-date" required />
+                        </div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div class="input-box">
+                            <lable>User name</lable>
+                            <input id="UserName" name="UserName" type="text" required />
+                        </div>
+                        <div class="input-box">
+                            <lable>Password</lable>
+                            <input id="Password" name="Password" type="password" required />
+                        </div>
+                        <div class="input-box">
+                            <lable>Password Again</lable>
+                            <input id="PasswordAgain" name="PasswordAgain" type="password" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terms">
+                    <lable>
+                        <input type="checkbox" required />
+                        I agree to terms & condition.
+                    </lable>
+                </div>
+                <button type="submit" class="btn" onclick="validation()">Sign Up !</button>
+                <div class="login-register">
+                    <p>
+                        Already have an account?
+                        <a href="#" class="login-link">Login</a>
+                    </p>
+                </div>
+            </form>
+            <span id="error-message" class="error-message"></span>
+        </div>
+
+        <div class="form-box configuration">
+            <h2 style="text-align:center">Configuration</h2>
+            <form action="#">
+                <div class="input-box">
+                    <lable>Choose Shooting Key</lable>
+                    <input type="text" id="ShootingKey" maxlength="1" />
+                    <p>(space is default)</p>
+                    <br />
+                </div>
+                <br />
+                <div class="input-box">
+                    <lable>Time Of the Game</lable>
+                    <input type="number" id="TimeOftheGame" maxlength="3" />
+                    <p>(2 min is default)</p>
+                </div>
+                <button type="submit" id="=configbtn" class="btn" onclick="gameConfig(); window.location.href='game.html'">Start!</button>
+                <!-- <script src="script_without_comments.js"></script> -->
+                <!-- <a href="game_running.html">Go to Page 2</a> -->
+
+            </form>
+        </div>
+
+    </div>
+
+
+    <script src="login_script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+<footer>
+    <div class="contact-info">
+        <h4>Contact Us</h4>
+        <p>
+            <span>Name: Roy Turiski </span>
+            <span>ID: 315523423</span>
+            <span>Email: Turiskir@post.bgu.ac.il</span>
+            <span>Name: Elad Duani </span>
+            <span>ID: 318640828</span>
+            <span>Email: Duanie@post.bgu.ac.il</span>
+        </p>
+    </div>
+</footer>
+</html>

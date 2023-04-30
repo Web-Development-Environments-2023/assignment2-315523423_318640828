@@ -1,0 +1,129 @@
+<style>
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* background-image: url('/images/homePage.jpg'); */
+        background-repeat: no-repeat;
+    }
+
+    body {
+        margin: 0
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+    }
+
+    .gameMenu p,
+    .gameMenu a {
+        position: relative;
+        font-size: 1.1em;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 40px;
+    }
+
+        .gameMenu a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #fff;
+            border-radius: 5px;
+            bottom: -6px;
+            ;
+            border-width: 1px;
+            border-color: #fff;
+            transform: scaleX(0);
+            transition: transform .5s;
+        }
+
+        .gameMenu a:hover::after {
+            transform: scaleX(1);
+        }
+</style>
+
+<canvas width="1366" height="768"></canvas>
+
+<header>
+    <nav class="gameMenu">
+        <a href="index.html">Go To Home Page</a>
+        <a href="game_running.html"> Start New Game  </a>
+
+        <p>The score is: <span id="myScore"></span></p>
+        <P>Life: <span id="myLifeBeLike"></span></P>
+        <p>The time is: <span id="timeOfPlay"></span></p>
+
+        <p id="timer"></p>
+
+    </nav>
+</header>
+
+
+<body>
+
+
+    <div class="wrapper2">
+        <p>message: <span id="EndMessage"></span></p>
+    </div>
+
+
+    <audio src="music/MusicGame.mp3" autoplay loop>
+    </audio>
+
+    <audio id="Bomb" src="music/SmallBomb.mp3">
+    </audio>
+
+    <audio id="Lost" src="music/YouLost.mp3">
+    </audio>
+
+    <script src="game_script.js"></script>
+
+    <script>
+        var minutes = localStorage.getItem('forTimer');
+        var final_score = localStorage.getItem('scoring');
+        // var MyLife = localStorage.getItem('scoring');
+
+        let timeOftheGame = document.getElementById("timer").value;
+
+        var seconds = minutes * 60;
+        if (seconds == 0) {
+            seconds = 120;
+        }
+        function timer() {
+            seconds--;
+
+            if (seconds == 0) {
+                clearInterval(intervalId); // stop the timer when it reaches zero
+                timerExpired(); // call a function when the timer expires
+            }
+
+            var timerDisplay = document.getElementById("timeOfPlay");
+            timerDisplay.innerHTML = seconds;
+        }
+
+        var intervalId = setInterval(timer, 1000); // run the timer function every second
+
+        function timerExpired() {
+            if (final_score < 100) {
+                alert("You can do better! Only " + final_score + "points.");
+            }
+            else {
+                // need to move to home page
+                alert("Winner!");
+            }
+        }
+
+    </script>
+</body>
